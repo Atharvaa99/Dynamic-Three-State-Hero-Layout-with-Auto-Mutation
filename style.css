@@ -34,7 +34,16 @@ body {
     accent-color: var(--accent);
 }
 
-
+.ui-shell{
+    height: 100%;
+}
+.ui-shell > label{
+    font-size: 30px;
+    position: fixed;
+    inset-block-start: 95%;
+    inset-inline-start: 1.3cqi;
+    z-index: 2;
+}
 @container layout (min-width:769px) {
     .hero {
         display: grid;
@@ -47,7 +56,6 @@ body {
     }
 
     .hero:not(:has(.sidebar)) {
-        transition: 1s ease-in-out;
         grid-template-columns: auto auto;
     }
 }
@@ -86,11 +94,52 @@ body {
     align-self: flex-start;
     border-radius: 5px;
     height: 90%;
-    padding: 1cqi;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 
 }
+.side-panel {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  width: min(320px, 90vw);
+  height: 100vh;
+  background-color: var(--card);
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 15px;
+  color: var(--text);
+  padding: clamp(1rem, 2cqi, 2rem);
+  backdrop-filter: blur(14px);
+  transform: translateX(0);
+  opacity: 0;
+  transition: all 0.5s ease;
+  z-index: 50;
+  box-shadow: -8px 0 20px rgba(0, 0, 0, 0.3);
+  border-left: 1px solid var(--border);
+  overflow-y: auto;
+}
 
+.ui-shell:has(#settings:checked) .side-panel{
+    transform: translateX(0);
+    opacity: 1;
+}
+.ui-shell:has(#settings:checked) .hero{
+    padding-right: 320px;
+    transition: all 0.5s ease;
+}
+.ui-shell:has(#settings:checked) .mainText{
+    transition: all 0.5s ease;
+    font-size: clamp(1rem,1.8cqi,1.5rem);
+}
+.ui-shell:not(:has(#settings:checked)) .mainText{
+    transition: all 0.5s ease;
+}
+.ui-shell:not(:has(#settings:checked)) .hero{
+    transition: all 0.5s ease;
+}
+.ui-shell:has(#settings:checked) .image{
+    display: none;
+    transition: all 0.5s ease;
+}
 .image img {
     animation: fadeInTop 1s ease-in-out;
     height: 30cqb;
@@ -108,6 +157,7 @@ section p {
     position: fixed;
     top: 27px;
     right: 15px;
+    z-index: 100;
 }
 
 .side-toggle {
