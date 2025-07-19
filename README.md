@@ -5,8 +5,9 @@ A fully responsive, mutation-aware hero layout with optional sidebar, built usin
 ---
 
 ## 🌐 Live Demo 
-## 🌐 Live Demo  
 [🔗 View Project Live](https://dynamic-three-state-hero-layout-wit.vercel.app)
+
+
 [🔗 View Project Demo] (https://www.loom.com/share/6de2926c75d74ff188df4e1e572ff16b?sid=cde9d762-a336-413a-bccf-b4fa9b1e2aa0)
 *(Replace with your actual deployed link)*
 
